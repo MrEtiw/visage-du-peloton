@@ -8,7 +8,9 @@ are bundled inside, so it needs no internet and no install.
 ```
 mon-dossier/
 ├── visages-du-peloton.html
+├── roster.json           ← optional: seeds a first-time visitor
 └── photos/
+    ├── manifest.json     ← optional: for hosts that serve no directory listing
     ├── POGACAR_Tadej.jpg
     ├── van_der_poel_mathieu.png
     ├── 12-kopecky.jpeg
@@ -89,6 +91,32 @@ volunteer.
 
 (Photos added through the upload fallback, on a phone or inside Claude, *are*
 embedded, since there's no folder to point at. Keep to the folder on desktop.)
+
+## Handing it to other people
+
+Drop a `roster.json` next to the HTML and the app seeds itself from it the first
+time someone opens the page — no import step and no instructions. They land on a
+full roster with the folder photos already attached.
+
+It is just a backup file under another name:
+
+```bash
+# Photos → Download backup, then:
+mv ~/Downloads/visages-du-peloton-2026-08-26.json roster.json
+```
+
+What carries over is the roster: names, nations, categories, and the manual
+filename choices that resolve shared surnames. What doesn't is your progress —
+`box`, `seen` and `hits` are zeroed on the way in, so nobody inherits a
+stranger's boxes. Embedded photos are ignored as well; the folder is the source
+of truth.
+
+The seed only fires when that browser has nothing stored yet. Once someone has
+started drilling, their own data wins and `roster.json` is never read again —
+so updating it changes what *new* people get, not what existing ones have.
+
+No `roster.json`, no harm: the app falls through to the starter-list screen
+exactly as before.
 
 ## Rebuilding after edits
 

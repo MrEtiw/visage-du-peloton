@@ -369,6 +369,41 @@ async function listFolder(dir) {
   return { base, files: uniq, via: "directory listing" };
 }
 
+/* A roster.json served next to the page turns a first visit into a ready app:
+   same shape as a Photos-tab backup, riders pointing at photos/ by filename.
+   What carries over is the roster — names, nations, categories, and the manual
+   filename choices that resolve shared surnames. What does not is whoever
+   exported it: box/seen/hits are reset so each visitor starts at zero rather
+   than inheriting a stranger's progress. Embedded photos are ignored too — the
+   folder is the source of truth — so `stored` is cleared rather than trusted.
+   A missing file, or no network, falls through to the empty state as before. */
+const SEED_FILE = "roster.json";
+
+async function fetchSeedRoster() {
+  let payload;
+  try {
+    const res = await fetch(SEED_FILE, { cache: "no-store" });
+    if (!res.ok) return null;
+    payload = await res.json();
+  } catch (e) {
+    return null; /* absent, malformed or offline: all mean "no seed" */
+  }
+  if (!payload || !Array.isArray(payload.riders) || !payload.riders.length)
+    return null;
+  return {
+    riders: payload.riders.map((r, i) => ({
+      ...r,
+      seq: typeof r.seq === "number" ? r.seq : i,
+      b: typeof r.b === "number" ? r.b : Math.floor(i / BUCKET),
+      stored: false,
+      box: 0,
+      seen: 0,
+      hits: 0,
+    })),
+    photoDir: payload.photoDir,
+  };
+}
+
 /* Decide which file belongs to which rider. Explicit mappings the user has
    already made are honoured first; everything else is matched on surname. */
 function resolveFolder(riders, files) {
@@ -540,6 +575,18 @@ export default function RiderFaces() {
       if (data && Array.isArray(data.riders)) {
         setRiders(data.riders);
         if (data.photoDir) setPhotoDir(data.photoDir);
+      } else {
+        /* Nothing stored for this browser yet. If the host ships a roster.json,
+           adopt it so a visitor lands on a full roster instead of the empty
+           state. Clearing firstSave lets that seed persist on the next tick,
+           after which this browser is on its own copy. */
+        const seed = await fetchSeedRoster();
+        if (dead) return;
+        if (seed) {
+          setRiders(seed.riders);
+          if (seed.photoDir) setPhotoDir(seed.photoDir);
+          firstSave.current = false;
+        }
       }
       setLoaded(true);
       const mode = await probeStorage();
