@@ -101,7 +101,7 @@ async function sDel(key) {
   if (hasStore) {
     try {
       await window.storage.delete(key, false);
-    } catch (e) {}
+    } catch (e) { }
     return;
   }
   try {
@@ -129,22 +129,22 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /* ---------- countries ---------- */
 const IOC2ISO = {
-  SLO:"SI",NED:"NL",BEL:"BE",DEN:"DK",ERI:"ER",ESP:"ES",MEX:"MX",POR:"PT",ITA:"IT",
-  GBR:"GB",IRL:"IE",USA:"US",GER:"DE",SUI:"CH",FRA:"FR",ECU:"EC",COL:"CO",AUS:"AU",
-  LAT:"LV",CAN:"CA",POL:"PL",NZL:"NZ",NOR:"NO",SWE:"SE",AUT:"AT",CZE:"CZ",SVK:"SK",
-  RSA:"ZA",JPN:"JP",KAZ:"KZ",UKR:"UA",EST:"EE",LTU:"LT",HUN:"HU",ROU:"RO",CRO:"HR",
-  SRB:"RS",GRE:"GR",TUR:"TR",ISR:"IL",BRA:"BR",ARG:"AR",CHI:"CL",URU:"UY",VEN:"VE",
-  CRC:"CR",GUA:"GT",RWA:"RW",ETH:"ET",ALG:"DZ",MAR:"MA",TUN:"TN",EGY:"EG",BUR:"BF",
-  UAE:"AE",CHN:"CN",KOR:"KR",TPE:"TW",THA:"TH",IND:"IN",INA:"ID",MAS:"MY",PHI:"PH",
-  SGP:"SG",HKG:"HK",LUX:"LU",MON:"MC",BLR:"BY",MDA:"MD",GEO:"GE",ARM:"AM",AZE:"AZ",
-  KGZ:"KG",UZB:"UZ",ISL:"IS",FIN:"FI",CYP:"CY",BUL:"BG",MKD:"MK",ALB:"AL",BIH:"BA",
-  MNE:"ME",AND:"AD",SMR:"SM",MLT:"MT",NAM:"NA",KEN:"KE",UGA:"UG",NGR:"NG",GHA:"GH",
-  CIV:"CI",SEN:"SN",CMR:"CM",ZIM:"ZW",BOT:"BW",MRI:"MU",CUB:"CU",DOM:"DO",PUR:"PR",
-  PAN:"PA",HON:"HN",BOL:"BO",PER:"PE",PAR:"PY",TTO:"TT",JAM:"JM",BAR:"BB",SUR:"SR",
-  GUY:"GY",FIJ:"FJ",PNG:"PG",MYA:"MM",VIE:"VN",NEP:"NP",IRI:"IR",IRQ:"IQ",JOR:"JO",
-  LIB:"LB",KSA:"SA",QAT:"QA",BRN:"BH",KUW:"KW",OMA:"OM",SYR:"SY",LBA:"LY",SUD:"SD",
-  TAN:"TZ",ZAM:"ZM",MOZ:"MZ",ANG:"AO",MAD:"MG",MAW:"MW",BEN:"BJ",TOG:"TG",MLI:"ML",
-  NIG:"NE",GAB:"GA",CGO:"CG",COD:"CD",LIE:"LI",
+  SLO: "SI", NED: "NL", BEL: "BE", DEN: "DK", ERI: "ER", ESP: "ES", MEX: "MX", POR: "PT", ITA: "IT",
+  GBR: "GB", IRL: "IE", USA: "US", GER: "DE", SUI: "CH", FRA: "FR", ECU: "EC", COL: "CO", AUS: "AU",
+  LAT: "LV", CAN: "CA", POL: "PL", NZL: "NZ", NOR: "NO", SWE: "SE", AUT: "AT", CZE: "CZ", SVK: "SK",
+  RSA: "ZA", JPN: "JP", KAZ: "KZ", UKR: "UA", EST: "EE", LTU: "LT", HUN: "HU", ROU: "RO", CRO: "HR",
+  SRB: "RS", GRE: "GR", TUR: "TR", ISR: "IL", BRA: "BR", ARG: "AR", CHI: "CL", URU: "UY", VEN: "VE",
+  CRC: "CR", GUA: "GT", RWA: "RW", ETH: "ET", ALG: "DZ", MAR: "MA", TUN: "TN", EGY: "EG", BUR: "BF",
+  UAE: "AE", CHN: "CN", KOR: "KR", TPE: "TW", THA: "TH", IND: "IN", INA: "ID", MAS: "MY", PHI: "PH",
+  SGP: "SG", HKG: "HK", LUX: "LU", MON: "MC", BLR: "BY", MDA: "MD", GEO: "GE", ARM: "AM", AZE: "AZ",
+  KGZ: "KG", UZB: "UZ", ISL: "IS", FIN: "FI", CYP: "CY", BUL: "BG", MKD: "MK", ALB: "AL", BIH: "BA",
+  MNE: "ME", AND: "AD", SMR: "SM", MLT: "MT", NAM: "NA", KEN: "KE", UGA: "UG", NGR: "NG", GHA: "GH",
+  CIV: "CI", SEN: "SN", CMR: "CM", ZIM: "ZW", BOT: "BW", MRI: "MU", CUB: "CU", DOM: "DO", PUR: "PR",
+  PAN: "PA", HON: "HN", BOL: "BO", PER: "PE", PAR: "PY", TTO: "TT", JAM: "JM", BAR: "BB", SUR: "SR",
+  GUY: "GY", FIJ: "FJ", PNG: "PG", MYA: "MM", VIE: "VN", NEP: "NP", IRI: "IR", IRQ: "IQ", JOR: "JO",
+  LIB: "LB", KSA: "SA", QAT: "QA", BRN: "BH", KUW: "KW", OMA: "OM", SYR: "SY", LBA: "LY", SUD: "SD",
+  TAN: "TZ", ZAM: "ZM", MOZ: "MZ", ANG: "AO", MAD: "MG", MAW: "MW", BEN: "BJ", TOG: "TG", MLI: "ML",
+  NIG: "NE", GAB: "GA", CGO: "CG", COD: "CD", LIE: "LI",
 };
 function flagOf(code) {
   const iso = IOC2ISO[(code || "").toUpperCase()];
@@ -166,35 +166,35 @@ const CATEGORIES = [
 
 /* ---------- starter roster (edit freely — not the official startlist) ---------- */
 const SEED = [
-  ["Pogačar","Tadej","SLO","Men Elite"],["van der Poel","Mathieu","NED","Men Elite"],
-  ["Evenepoel","Remco","BEL","Men Elite"],["Vingegaard","Jonas","DEN","Men Elite"],
-  ["Roglič","Primož","SLO","Men Elite"],["van Aert","Wout","BEL","Men Elite"],
-  ["Pedersen","Mads","DEN","Men Elite"],["Philipsen","Jasper","BEL","Men Elite"],
-  ["Girmay","Biniam","ERI","Men Elite"],["Ayuso","Juan","ESP","Men Elite"],
-  ["Del Toro","Isaac","MEX","Men Elite"],["Almeida","João","POR","Men Elite"],
-  ["Ganna","Filippo","ITA","Men Elite"],["Milan","Jonathan","ITA","Men Elite"],
-  ["Pidcock","Tom","GBR","Men Elite"],["Onley","Oscar","GBR","Men Elite"],
-  ["Healy","Ben","IRL","Men Elite"],["Skjelmose","Mattias","DEN","Men Elite"],
-  ["Jorgenson","Matteo","USA","Men Elite"],["Kuss","Sepp","USA","Men Elite"],
-  ["Simmons","Quinn","USA","Men Elite"],["Lipowitz","Florian","GER","Men Elite"],
-  ["Hirschi","Marc","SUI","Men Elite"],["Küng","Stefan","SUI","Men Elite"],
-  ["Mohorič","Matej","SLO","Men Elite"],["Alaphilippe","Julian","FRA","Men Elite"],
-  ["Vauquelin","Kévin","FRA","Men Elite"],["Seixas","Paul","FRA","Men Elite"],
-  ["Carapaz","Richard","ECU","Men Elite"],["Narváez","Jhonatan","ECU","Men Elite"],
-  ["Bernal","Egan","COL","Men Elite"],["Matthews","Michael","AUS","Men Elite"],
-  ["Skujiņš","Toms","LAT","Men Elite"],["Woods","Michael","CAN","Men Elite"],
-  ["Houle","Hugo","CAN","Men Elite"],["Boivin","Guillaume","CAN","Men Elite"],
-  ["Gee","Derek","CAN","Men Elite"],
-  ["Kopecky","Lotte","BEL","Women Elite"],["Vollering","Demi","NED","Women Elite"],
-  ["Wiebes","Lorena","NED","Women Elite"],["Vos","Marianne","NED","Women Elite"],
-  ["Pieterse","Puck","NED","Women Elite"],["Longo Borghini","Elisa","ITA","Women Elite"],
-  ["Balsamo","Elisa","ITA","Women Elite"],["Reusser","Marlen","SUI","Women Elite"],
-  ["Niewiadoma","Katarzyna","POL","Women Elite"],["Ferrand-Prévot","Pauline","FRA","Women Elite"],
-  ["Kerbaol","Cédrine","FRA","Women Elite"],["Faulkner","Kristen","USA","Women Elite"],
-  ["Dygert","Chloé","USA","Women Elite"],["Lippert","Liane","GER","Women Elite"],
-  ["Bäckstedt","Zoe","GBR","Women Elite"],["Wollaston","Ally","NZL","Women Elite"],
-  ["Jackson","Alison","CAN","Women Elite"],["Vallieres","Magdeleine","CAN","Women Elite"],
-  ["Baril","Olivia","CAN","Women Elite"],
+  ["Pogačar", "Tadej", "SLO", "Men Elite"], ["van der Poel", "Mathieu", "NED", "Men Elite"],
+  ["Evenepoel", "Remco", "BEL", "Men Elite"], ["Vingegaard", "Jonas", "DEN", "Men Elite"],
+  ["Roglič", "Primož", "SLO", "Men Elite"], ["van Aert", "Wout", "BEL", "Men Elite"],
+  ["Pedersen", "Mads", "DEN", "Men Elite"], ["Philipsen", "Jasper", "BEL", "Men Elite"],
+  ["Girmay", "Biniam", "ERI", "Men Elite"], ["Ayuso", "Juan", "ESP", "Men Elite"],
+  ["Del Toro", "Isaac", "MEX", "Men Elite"], ["Almeida", "João", "POR", "Men Elite"],
+  ["Ganna", "Filippo", "ITA", "Men Elite"], ["Milan", "Jonathan", "ITA", "Men Elite"],
+  ["Pidcock", "Tom", "GBR", "Men Elite"], ["Onley", "Oscar", "GBR", "Men Elite"],
+  ["Healy", "Ben", "IRL", "Men Elite"], ["Skjelmose", "Mattias", "DEN", "Men Elite"],
+  ["Jorgenson", "Matteo", "USA", "Men Elite"], ["Kuss", "Sepp", "USA", "Men Elite"],
+  ["Simmons", "Quinn", "USA", "Men Elite"], ["Lipowitz", "Florian", "GER", "Men Elite"],
+  ["Hirschi", "Marc", "SUI", "Men Elite"], ["Küng", "Stefan", "SUI", "Men Elite"],
+  ["Mohorič", "Matej", "SLO", "Men Elite"], ["Alaphilippe", "Julian", "FRA", "Men Elite"],
+  ["Vauquelin", "Kévin", "FRA", "Men Elite"], ["Seixas", "Paul", "FRA", "Men Elite"],
+  ["Carapaz", "Richard", "ECU", "Men Elite"], ["Narváez", "Jhonatan", "ECU", "Men Elite"],
+  ["Bernal", "Egan", "COL", "Men Elite"], ["Matthews", "Michael", "AUS", "Men Elite"],
+  ["Skujiņš", "Toms", "LAT", "Men Elite"], ["Woods", "Michael", "CAN", "Men Elite"],
+  ["Houle", "Hugo", "CAN", "Men Elite"], ["Boivin", "Guillaume", "CAN", "Men Elite"],
+  ["Gee", "Derek", "CAN", "Men Elite"],
+  ["Kopecky", "Lotte", "BEL", "Women Elite"], ["Vollering", "Demi", "NED", "Women Elite"],
+  ["Wiebes", "Lorena", "NED", "Women Elite"], ["Vos", "Marianne", "NED", "Women Elite"],
+  ["Pieterse", "Puck", "NED", "Women Elite"], ["Longo Borghini", "Elisa", "ITA", "Women Elite"],
+  ["Balsamo", "Elisa", "ITA", "Women Elite"], ["Reusser", "Marlen", "SUI", "Women Elite"],
+  ["Niewiadoma", "Katarzyna", "POL", "Women Elite"], ["Ferrand-Prévot", "Pauline", "FRA", "Women Elite"],
+  ["Kerbaol", "Cédrine", "FRA", "Women Elite"], ["Faulkner", "Kristen", "USA", "Women Elite"],
+  ["Dygert", "Chloé", "USA", "Women Elite"], ["Lippert", "Liane", "GER", "Women Elite"],
+  ["Bäckstedt", "Zoe", "GBR", "Women Elite"], ["Wollaston", "Ally", "NZL", "Women Elite"],
+  ["Jackson", "Alison", "CAN", "Women Elite"], ["Vallieres", "Magdeleine", "CAN", "Women Elite"],
+  ["Baril", "Olivia", "CAN", "Women Elite"],
 ];
 
 /* ---------- image handling ---------- */
@@ -404,6 +404,7 @@ async function fetchSeedRoster() {
   };
 }
 
+
 /* Decide which file belongs to which rider. Explicit mappings the user has
    already made are honoured first; everything else is matched on surname. */
 function resolveFolder(riders, files) {
@@ -492,7 +493,7 @@ function rnd() {
       crypto.getRandomValues(a);
       return a[0] / 4294967296;
     }
-  } catch (e) {}
+  } catch (e) { }
   return Math.random();
 }
 
@@ -922,7 +923,7 @@ export default function RiderFaces() {
           <div className="mz-alert">
             Nothing can be saved from a <span className="mz-mono">file://</span>{" "}
             page. Serve the folder instead — <span className="mz-mono">
-            python3 -m http.server 8000</span> — then open{" "}
+              python3 -m http.server 8000</span> — then open{" "}
             <span className="mz-mono">localhost:8000</span>.
           </div>
         )}
@@ -973,11 +974,11 @@ export default function RiderFaces() {
                     rs.map((r) =>
                       r.id === id
                         ? {
-                            ...r,
-                            box: ok ? Math.min(5, (r.box || 0) + 1) : 1,
-                            seen: (r.seen || 0) + 1,
-                            hits: (r.hits || 0) + (ok ? 1 : 0),
-                          }
+                          ...r,
+                          box: ok ? Math.min(5, (r.box || 0) + 1) : 1,
+                          seen: (r.seen || 0) + 1,
+                          hits: (r.hits || 0) + (ok ? 1 : 0),
+                        }
                         : r
                     )
                   )
@@ -1352,10 +1353,10 @@ function Drill({ riders, photos, onGrade, goAdd, onOpenProfile }) {
                   picked == null
                     ? ""
                     : c.id === cur.id
-                    ? "is-right"
-                    : c.id === picked
-                    ? "is-wrong"
-                    : "is-dim";
+                      ? "is-right"
+                      : c.id === picked
+                        ? "is-wrong"
+                        : "is-dim";
                 return (
                   <button
                     key={c.id}
@@ -2271,7 +2272,7 @@ function UploadFallback({ riders, onSaveBatch, flash }) {
       if (!rider) continue;
       try {
         entries.push({ rider, url: await fileToDataUrl(chosen[i].file) });
-      } catch (e) {}
+      } catch (e) { }
       setDone(i + 1);
     }
     const res = await onSaveBatch(entries);
