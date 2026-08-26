@@ -2716,7 +2716,7 @@ function Styles() {
 
 /* sheet */
 .mz-sheet-wrap { position: fixed; inset: 0; background: rgba(10,11,13,.72); display: flex; align-items: flex-end; justify-content: center; z-index: 40; padding: 0; }
-.mz-sheet { background: var(--bg); border-top: 3px solid var(--yellow); width: 100%; max-width: 620px; max-height: 92vh; overflow-y: auto; padding: 18px 18px calc(18px + env(safe-area-inset-bottom)); animation: mzUp .24s cubic-bezier(.2,.8,.3,1) both; }
+.mz-sheet { background: var(--bg); border-top: 3px solid var(--yellow); width: 100%; max-width: 620px; max-height: 92vh; max-height: 92dvh; overflow-y: auto; padding: 18px 18px calc(18px + env(safe-area-inset-bottom)); animation: mzUp .24s cubic-bezier(.2,.8,.3,1) both; }
 @keyframes mzUp { from { transform: translateY(24px); opacity: .4; } to { transform: none; opacity: 1; } }
 .mz-sheet-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .mz-x { background: none; border: 1px solid var(--line); color: var(--mute); width: 32px; height: 32px; border-radius: 2px; font-size: 20px; line-height: 1; cursor: pointer; flex: 0 0 auto; }
